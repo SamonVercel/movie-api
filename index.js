@@ -4,15 +4,17 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 
 const app = express();
 
+// Enable CORS
 app.use(cors());
 
+// Proxy middleware to forward requests from '/api' to the target server
 app.use(
   "/api",
   createProxyMiddleware({
     target: "https://movieforkhapi.vercel.app",
     changeOrigin: true,
     pathRewrite: {
-      "^/api": "",
+      "^/api": "", // Remove '/api' from the request URL when forwarding
     },
   })
 );
@@ -547,4 +549,7 @@ app.get("/", (req, res) => {
   });
 });
 
-module.exports = app;
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
