@@ -20,7 +20,7 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  res.send({
+  res.json({
     moviedata: [
       {
         id: "2",
