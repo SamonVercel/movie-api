@@ -1,13 +1,19 @@
 const express = require("express");
 const cors = require("cors");
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
 const app = express();
 
+app.use(cors());
+
 app.use(
-  cors({
-    origin: "http://127.0.0.1:5500",
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+  "/api",
+  createProxyMiddleware({
+    target: "https://movieforkhapi.vercel.app",
+    changeOrigin: true,
+    pathRewrite: {
+      "^/api": "",
+    },
   })
 );
 
