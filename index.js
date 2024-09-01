@@ -543,7 +543,7 @@ app.get("/", (req, res) => {
         id: "1",
         username: "samonbk",
         password: "123",
-        role: "",
+        role: "Admin",
         picture:
           "https://pics.craiyon.com/2023-07-15/dc2ec5a571974417a5551420a4fb0587.webp",
         cover: "https://i.imgur.com/n7u6qMl.jpeg",
