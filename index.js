@@ -547,6 +547,9 @@ app.get("/", (req, res) => {
         picture:
           "https://pics.craiyon.com/2023-07-15/dc2ec5a571974417a5551420a4fb0587.webp",
         cover: "https://i.imgur.com/n7u6qMl.jpeg",
+        phone: "+85511339845",
+        dob: "7/9/2001",
+        bio: "game, movie, football",
       },
     ],
   });
